@@ -4,7 +4,7 @@ import time
 import subprocess
 
 
-PATH = "chromedriver.exe"
+PATH = "E:/Python3/Python/bot/Selenium/chromedriver.exe"
 
 driver = webdriver.Chrome(PATH)
 
@@ -43,13 +43,13 @@ def onepiece(episode):
             
     download = dl(lien_dl.get_attribute("onclick"))
     driver.get(download)
-    time.sleep(12)
+    time.sleep(5)
     driver.find_element_by_xpath('//*[@id="F1"]/button').click()
     lien = find_elem('//*[@id="container"]/div/span/a').get_attribute("href")
 
     subprocess.Popen(f"python dl.py {episode} {lien}")
 
-ep_start = 902
+ep_start = 912
 nbr_ep = 10
 for i in range(ep_start,ep_start+nbr_ep):
     onepiece(i)
