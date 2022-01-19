@@ -1,2 +1,1 @@
-def lol():
-    print("lol")
+print("lol")

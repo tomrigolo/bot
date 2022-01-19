@@ -45,8 +45,8 @@ def onepiece(episode):
     time.sleep(5)
     lien = driver.find_element_by_xpath('//*[@id="container"]/div/span/a').get_attribute("href")
     
-    subprocess.Popen(f"python dl.py {episode} {lien}")
+    subprocess.Popen(f"python E:/Python3/Python/bot/Selenium/dl.pydl.py {episode} {lien}")
     
 for i in range(890,895):
     onepiece(i)
-    
+

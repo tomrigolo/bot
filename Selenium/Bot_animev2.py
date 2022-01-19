@@ -47,7 +47,7 @@ def onepiece(episode):
     driver.find_element_by_xpath('//*[@id="F1"]/button').click()
     lien = find_elem('//*[@id="container"]/div/span/a').get_attribute("href")
 
-    subprocess.Popen(f"python dl.py {episode} {lien}")
+    subprocess.Popen(f"python E:/Python3/Python/bot/Selenium/dl.py {episode} {lien}")
 
 ep_start = 912
 nbr_ep = 10
