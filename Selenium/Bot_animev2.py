@@ -49,8 +49,8 @@ def onepiece(episode):
 
     subprocess.Popen(f"python E:/Python3/Python/bot/Selenium/dl.py {episode} {lien}")
 
-ep_start = 922
-nbr_ep = 10
+ep_start = 932
+nbr_ep = 2
 for i in range(ep_start,ep_start+nbr_ep):
     onepiece(i)
 
