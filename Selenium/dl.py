@@ -6,10 +6,5 @@ def dl(lien,episode):
     with open(f'E:\Anime\One Piece\One Piece Episode {episode}.mp4','wb') as f:
         f.write(request.content)
 
-episode = int(sys.argv[1])
-lien_dl = str(sys.argv[2])
 
-
-
-    
-dl(lien_dl,episode)
+dl(str(sys.argv[2]),int(sys.argv[1]))
