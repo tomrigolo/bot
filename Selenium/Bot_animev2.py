@@ -43,14 +43,13 @@ def onepiece(episode):
             
     download = dl(lien_dl.get_attribute("onclick"))
     driver.get(download)
-    time.sleep(5)
-    driver.find_element_by_xpath('//*[@id="F1"]/button').click()
+    find_elem('//*[@id="F1"]/button').click()
     lien = find_elem('//*[@id="container"]/div/span/a').get_attribute("href")
 
     subprocess.Popen(f"python E:/Python3/Python/bot/Selenium/dl.py {episode} {lien}")
 
-ep_start = 941
-nbr_ep = 10
+ep_start = 951
+nbr_ep = 2
 for i in range(ep_start,ep_start+nbr_ep):
     onepiece(i)
 
