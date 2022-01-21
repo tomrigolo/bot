@@ -36,19 +36,23 @@ def onepiece(episode):
             try:
                 lien_dl = driver.find_element_by_xpath('/html/body/div[3]/div/table/tbody/tr[3]/td[1]/a')
             except:
-                lien_dl = driver.find_element_by_xpath('/html/body/div[3]/div/table/tbody/tr[2]/td[1]/a')
+                try:
+                    lien_dl = driver.find_element_by_xpath('/html/body/div[3]/div/table/tbody/tr[2]/td[1]/a')
+                except:
+                    lien_dl = driver.find_element_by_xpath('/html/body/div[3]/div/table/tbody/tr[1]/td[1]/a')
+                break
             break
         except:
             driver.close()
             
     download = dl(lien_dl.get_attribute("onclick"))
     driver.get(download)
+    time.sleep(3)
     find_elem('//*[@id="F1"]/button').click()
     lien = find_elem('//*[@id="container"]/div/span/a').get_attribute("href")
-
     subprocess.Popen(f"python E:/Python3/Python/bot/Selenium/dl.py {episode} {lien}")
 
-ep_start = 951
+ep_start = 953
 nbr_ep = 2
 for i in range(ep_start,ep_start+nbr_ep):
     onepiece(i)
