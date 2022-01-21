@@ -52,8 +52,8 @@ def onepiece(episode):
     lien = find_elem('//*[@id="container"]/div/span/a').get_attribute("href")
     subprocess.Popen(f"python E:/Python3/Python/bot/Selenium/dl.py {episode} {lien}")
 
-ep_start = 955
-nbr_ep = 2
+ep_start = 968
+nbr_ep = 10
 for i in range(ep_start,ep_start+nbr_ep):
     onepiece(i)
 
