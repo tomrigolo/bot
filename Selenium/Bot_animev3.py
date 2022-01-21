@@ -34,9 +34,9 @@ def onepiece(episode):
         driver.switch_to.window(windows)
         try:
             try:
-                lien_dl = driver.find_element_by_xpath('/html/body/div[3]/div/table/tbody/tr[3]/td[1]/a')
+                lien_dl = find_elem('/html/body/div[3]/div/table/tbody/tr[3]/td[1]/a')
             except:
-                lien_dl = driver.find_element_by_xpath('/html/body/div[3]/div/table/tbody/tr[2]/td[1]/a')
+                lien_dl = find_elem('/html/body/div[3]/div/table/tbody/tr[2]/td[1]/a')
             break
         except:
             driver.close()
