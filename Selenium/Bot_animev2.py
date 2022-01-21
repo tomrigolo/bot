@@ -43,7 +43,7 @@ def onepiece(episode):
             
     download = dl(lien_dl.get_attribute("onclick"))
     driver.get(download)
-    time.sleep(2)
+    time.sleep(5)
     driver.find_element_by_xpath('//*[@id="F1"]/button').click()
     lien = find_elem('//*[@id="container"]/div/span/a').get_attribute("href")
 
