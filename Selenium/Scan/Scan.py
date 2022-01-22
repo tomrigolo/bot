@@ -1,4 +1,3 @@
-import time 
 import subprocess
 
 
@@ -12,4 +11,7 @@ def scan(lien,chapter_start,nbr_chapters):
 
 
 if __name__ == "__main__":
-    scan("https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-", 2 ,1)
+    lien = "https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-"
+    chapter_start = 2
+    print(f"{lien}{chapter_start}")
+    #scan("https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-", 2 ,1)
