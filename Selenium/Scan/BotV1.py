@@ -11,18 +11,26 @@ SCROLL_PAUSE_TIME = 0.5
 
 
 def scan(lien,chemin_dossier,format,chapter_start,nbr_chapters):
-    for i in range(nbr_chapters):
-        chapter_start += i
-        lien_dl = (f"{lien}{chapter_start}")
+    driver = webdriver.Chrome(PATH_CHROME)
+    for j in range(nbr_chapters):
+        chapter_start += j
+        lien_dl = (f'{lien}{chapter_start}')
+        driver.get(f'{lien_dl}')
+        i = 0
+        height = driver.execute_script("return document.body.scrollHeight")
+        while i < height:
+            driver.execute_script(f"window.scrollTo(0, {i*1080})")
+            time.sleep(SCROLL_PAUSE_TIME)
+            height = driver.execute_script("return document.body.scrollHeight")
+            i += 1
         dl(lien_dl,chemin_dossier,format)
+    driver.close()
         
 def dl(lien,chemin,format):
     request = requests.get(lien)
     with open(f'{chemin} .{format}','ab') as f:
         f.write(request.content)
     
-if __name__ == "__main__":    
-    driver = webdriver.Chrome(PATH_CHROME)
-    last_height = driver.execute_script("return document.body.scrollHeight")
+if __name__ == "__main__":
     scan(LIEN_MANGA, CHEMIN_DOSSIER, FORMAT, 1, 4)
-    driver.close()
+    
