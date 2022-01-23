@@ -21,5 +21,5 @@ def dl(lien,chemin,format):
     
 if __name__ == "__main__":    
     driver = webdriver.Chrome(PATH_CHROME)
-    scan(LIEN_MANGA,CHEMIN_DOSSIER,FORMAT, 2 ,4)
+    scan(LIEN_MANGA, CHEMIN_DOSSIER, FORMAT, 1, 4)
     driver.close()
