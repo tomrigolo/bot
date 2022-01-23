@@ -18,7 +18,7 @@ def scan(lien,chemin_dossier,format_fichier,chapter_start,nbr_chapters):
         chapter_start += j
         lien_dl = (f'{lien}{chapter_start}')
         driver.get(f'{lien_dl}')
-        for i in range(100):
+        for i in range(80):
             y = i*1080
             driver.execute_script(f"window.scrollTo(0, {y})")
             time.sleep(SCROLL_PAUSE_TIME)
