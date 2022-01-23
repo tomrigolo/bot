@@ -11,7 +11,7 @@ SCROLL_PAUSE_TIME = 1
 
 if __name__ == "__main__":    
     driver = webdriver.Chrome(PATH_CHROME)
-    driver.get(f'{LIEN_MANGA}1')
+    driver.get(f'https://ww1.mangakakalot.tv/chapter/manga-zy953881/chapter-1')
     #driver.execute_script("window.scrollTo(0, 1080)") 
     #driver.quit()
     

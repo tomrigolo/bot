@@ -1,10 +1,8 @@
 import requests
-import sys
-
-def dl(lien):
-    request = requests.get(lien)
-    with open(f'E:\Scan\Sono Bisque Doll Wa Koi Wo Suru\Sono Bisque Doll Wa Koi Wo Suru .html','ab') as f:
-        f.write(request.content)
+from selenium import webdriver
+import time
 
 
-dl("https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-3")
+
+  
+webdriver.Chrome("E:/Python3/Python/bot/Selenium/Scan/chromedriver.exe").get(f'https://ww1.mangakakalot.tv/chapter/manga-zy953881/chapter-1')
