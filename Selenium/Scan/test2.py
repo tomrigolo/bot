@@ -12,8 +12,16 @@ SCROLL_PAUSE_TIME = 0.5
 if __name__ == "__main__":    
     driver = webdriver.Chrome(PATH_CHROME)
     driver.get(f'{LIEN_MANGA}1')
-    last_height = driver.execute_script("return document.body.scrollHeight")
-    for i in range(last_height):
-        driver.execute_script(f'window.scrollTo(0, {i})') 
-        time.sleep(SCROLL_PAUSE_TIME)
-        driver.close()
+
+while True:
+    # Scroll down to bottom
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    # Wait to load page
+    time.sleep(SCROLL_PAUSE_TIME)
+
+    # Calculate new scroll height and compare with last scroll height
+    new_height = driver.execute_script("return document.body.scrollHeight")
+    if new_height == last_height:
+        break
+    last_height = new_height
