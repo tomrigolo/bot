@@ -3,7 +3,6 @@ from selenium import webdriver
 
 
 PATH_CHROME = "E:/Python3/Python/bot/Selenium/Scan/chromedriver.exe"
-driver = webdriver.Chrome(PATH_CHROME)
 CHEMIN_DOSSIER = "E:\Scan\Sono Bisque Doll Wa Koi Wo Suru\Sono Bisque Doll Wa Koi Wo Suru"
 LIEN_MANGA = "https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-"
 FORMAT = "html"
@@ -21,4 +20,6 @@ def dl(lien,chemin,format):
         f.write(request.content)
     
 if __name__ == "__main__":    
+    driver = webdriver.Chrome(PATH_CHROME)
     scan(LIEN_MANGA,CHEMIN_DOSSIER,FORMAT, 2 ,4)
+    driver.close()
