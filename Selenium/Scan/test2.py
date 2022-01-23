@@ -9,10 +9,11 @@ LIEN_MANGA = "https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-"
 FORMAT = "html"
 SCROLL_PAUSE_TIME = 0.5
 
-
 if __name__ == "__main__":    
     driver = webdriver.Chrome(PATH_CHROME)
     driver.get(f'{LIEN_MANGA}1')
     last_height = driver.execute_script("return document.body.scrollHeight")
-    time.sleep(SCROLL_PAUSE_TIME)
-    driver.close()
+    for i in range(last_height):
+        driver.execute_script(f'window.scrollTo(0, {i})') 
+        time.sleep(SCROLL_PAUSE_TIME)
+        driver.close()
