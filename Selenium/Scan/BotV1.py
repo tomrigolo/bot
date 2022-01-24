@@ -3,6 +3,7 @@ from selenium import webdriver
 import time
 
 
+
 PATH_CHROME = "E:/Python3/Python/bot/Selenium/Scan/chromedriver.exe"
 NOM_FICHIER = "/Nisekoi"
 CHEMIN_DOSSIER = "E:/Scan/Nisekoi"
