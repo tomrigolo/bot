@@ -2,9 +2,8 @@ from genericpath import isdir
 from importlib.resources import path
 import requests
 import time
-from bs4 import BeautifulSoup
 import os
-
+import pyautogui
 
 PATH_CHROME = "E:/Python3/Python/bot/Selenium/Scan/chromedriver.exe"
 NOM_FICHIER = "Fairy Tail"
@@ -28,24 +27,7 @@ def scan(lien,chemin_dossier,format_fichier,chapter_start,nbr_chapters):
         time.sleep(PAUSE_DL)
         
 def dl(lien,chemin,chapteur,format):
-    if not os.path.isdir(f"{CHEMIN_DOSSIER}/asset"):
-        os.mkdir(f"{CHEMIN_DOSSIER}/asset")
-    request = requests.get(lien)
-    soup = BeautifulSoup(request.content, 'html.parser')
-    for index,img in enumerate( soup.find_all('img')):
-        if "data-src" in img:
-            img["src"] = img["data-src"]
-            del img["data-src"]
-        if "src" not in img or img["src"][0] != "h":
-            continue
-        extension = img["src"].split(".")[1]
-        img_name = f'{chapteur}-{index}'
-        with open (f'{chemin}/asset/{img_name}.{extension}','wb') as fimg:
-            fimg.write(requests.get(img["src"]).content)
-        img["src"] = f'./asset/{img_name}.{extension}'
-            
-    with open(f'{chemin}/{NOM_FICHIER} chapteur {chapteur}{format}','wb') as f:
-        f.write(str(soup).encode("utf-8"))
+    pyautogui.hotkey('ctrl', 's')
 
     
     
