@@ -3,25 +3,34 @@ from selenium import webdriver
 import time
 import pyautogui
 import os
-
+import pyperclip
 
 
 PATH_CHROME = "E:/Python3/Python/bot/Selenium/Scan/chromedriver.exe"
-NOM_FICHIER = "/Nisekoi"
-CHEMIN_DOSSIER = "E:/Scan/Nisekoi"
-LIEN_MANGA = "https://ww1.mangakakalot.tv/chapter/manga-kw951979/chapter-"
+NOM_FICHIER = "/Sono Bisque Doll Wa Koi Wo Suru"
+CHEMIN_DOSSIER = "E:/Scan/Sono Bisque Doll Wa Koi Wo Suru"
+LIEN_MANGA = "https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-"
 FORMAT = ".html"
 
-CHAPTEUR_START = 1
-NBR_CHAPTEURS = 1
+CHAPTEUR_START = 40
+NBR_CHAPTEURS = 69-35
 
+PAUSE_KEY = 0.5
 SCROLL_PAUSE_TIME = 0.2
-PAUSE_DL = 10
+PAUSE_DL = 15
 PAUSE_CHARGEMENT_PAGE = 0.5
 MONITOR_HEIGHT = 1080
 
+def _workaround_write(text):
+    """
+    This is a work-around for the bug in pyautogui.write() with non-QWERTY keyboards
+    It copies the text to clipboard and pastes it, instead of typing it.
+    """
+    pyperclip.copy(text)
+    pyautogui.hotkey('ctrl', 'v')
+    pyperclip.copy('')
+
 def scan(lien,chemin_dossier,nom_fichier,format_fichier,chapter_start,nbr_chapters):
-    
     for j in range(nbr_chapters):
         chapter_to_dl = chapter_start + j
         lien_dl = (f'{lien}{chapter_to_dl}')
@@ -37,26 +46,27 @@ def scan(lien,chemin_dossier,nom_fichier,format_fichier,chapter_start,nbr_chapte
             i+=1
         dl(lien_dl,chemin_dossier,nom_fichier,chapter_to_dl,format_fichier)
         time.sleep(PAUSE_DL)
-    #driver.close()
         
 def dl(lien,chemin,fichier,chapteur,format):
     pyautogui.hotkey('ctrl', 's')
-    time.sleep(0.5)
-    pyautogui.write(f'Nisekoi')
-    time.sleep(0.5)
+    time.sleep(PAUSE_KEY)
+    pyautogui.write(f'Nisekoi chapteurs {chapteur}')
+    time.sleep(PAUSE_KEY)
     pyautogui.hotkey('ctrl', 'l')
-    time.sleep(0.5)
-    pyautogui.write(f'E:\\Scan\\Nisekoi')
-    """time.sleep(0.5)
+    time.sleep(PAUSE_KEY)
+    _workaround_write(f'{chemin}')
+    time.sleep(PAUSE_KEY)
     pyautogui.press('enter')
-    time.sleep(0.5)
-    pyautogui.press('down')
-    time.sleep(0.5)
-    pyautogui.press('enter')"""
+    time.sleep(PAUSE_KEY)
+    for i in range(9):
+        pyautogui.press('tab')
+        time.sleep(PAUSE_KEY)
+    pyautogui.press('enter')
     
     
     
 if __name__ == "__main__":
     driver = webdriver.Chrome(PATH_CHROME)
     scan(LIEN_MANGA, CHEMIN_DOSSIER,NOM_FICHIER, FORMAT, CHAPTEUR_START, NBR_CHAPTEURS)
+    driver.close()
     
