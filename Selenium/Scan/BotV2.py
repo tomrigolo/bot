@@ -12,6 +12,7 @@ CHEMIN_DOSSIER = "E:/Scan/Sono Bisque Doll Wa Koi Wo Suru"
 LIEN_MANGA = "https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-"
 FORMAT = ".html"
 
+
 CHAPTEUR_START = 40
 NBR_CHAPTEURS = 69-35
 
