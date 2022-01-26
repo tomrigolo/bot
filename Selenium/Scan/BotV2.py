@@ -6,15 +6,17 @@ import os
 import pyperclip
 
 
-PATH_CHROME = "E:/Python3/Python/bot/Selenium/Scan/chromedriver.exe"
+PATH_CHROME = "C:/Users/utilisateur/Desktop/Python/bot/Selenium/Scan/chromedriver.exe"
 NOM_FICHIER = "/Sono Bisque Doll Wa Koi Wo Suru"
-CHEMIN_DOSSIER = "E:/Scan/Sono Bisque Doll Wa Koi Wo Suru"
+CHEMIN_DOSSIER = "C:/Users/utilisateur/Desktop/Scan/Sono Bisque Doll Wa Koi Wo Suru"
 LIEN_MANGA = "https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-"
 FORMAT = ".html"
 
 
 CHAPTEUR_START = 40
 NBR_CHAPTEURS = 69-35
+CHAPTEUR_START = 43
+NBR_CHAPTEURS = 69-35-1
 
 PAUSE_KEY = 0.5
 SCROLL_PAUSE_TIME = 0.2
