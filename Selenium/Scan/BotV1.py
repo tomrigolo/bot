@@ -4,13 +4,13 @@ import time
 
 
 
-PATH_CHROME = "E:/Python3/Python/bot/Selenium/Scan/chromedriver.exe"
-NOM_FICHIER = "/Nisekoi"
-CHEMIN_DOSSIER = "E:/Scan/Nisekoi"
-LIEN_MANGA = "https://ww1.mangakakalot.tv/chapter/manga-kw951979/chapter-"
+PATH_CHROME = "C:/Users/utilisateur/Desktop/Python/bot/Selenium/Scan/chromedriver.exe"
+NOM_FICHIER = "/Sono Bisque Doll Wa Koi Wo Suru"
+CHEMIN_DOSSIER = "C:/Users/utilisateur/Desktop/Scan/Sono Bisque Doll Wa Koi Wo Suru"
+LIEN_MANGA = "https://ww1.mangakakalot.tv/chapter/manga-bs978875/chapter-"
 FORMAT = ".html"
 
-CHAPTEUR_START = 1
+CHAPTEUR_START = 68
 NBR_CHAPTEURS = 2
 
 SCROLL_PAUSE_TIME = 0.1
